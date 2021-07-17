@@ -5,6 +5,12 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Welcome @ViewData["name"]</h1>
+    <h2>@ViewData["upn"]</h2>
+    @if (ViewData["photo"] != null)
+    {
+        <img src="@ViewData["photo"]" />
+    }
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Tasks: @ViewData["tasks"]</p>
 </div>
