@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -28,13 +26,13 @@ namespace GraphOrgExample.Pages
 
         public async Task<IActionResult> OnGetAsync()
         {
-            var user = await _graphServiceClient.Me.Request().GetAsync();
+            var user = await _graphServiceClient.Me.GetAsync();
             ViewData["name"] = user.DisplayName;
             ViewData["upn"] = user.UserPrincipalName;
             try
             {
                 _logger.LogInformation($"Try getting {user.DisplayName} photo");
-                using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
+                using (var photoStream = await _graphServiceClient.Me.Photo.Content.GetAsync())
                 {
                     byte[] photoByte = ((MemoryStream)photoStream).ToArray();
                     ViewData["photo"] = Convert.ToBase64String(photoByte);
@@ -48,8 +46,8 @@ namespace GraphOrgExample.Pages
             }
             try
             {
-                var data = await _graphServiceClient.Me.Todo.Lists.Request().GetAsync();
-                ViewData["tasks"] = string.Join(',', data.Select(x => $"{x.DisplayName},data:{x.Id}").ToList());
+                var data = await _graphServiceClient.Me.Todo.Lists.GetAsync();
+                ViewData["tasks"] = string.Join(',', data.Value.Select(x => $"{x.DisplayName},data:{x.Id}").ToList());
             }
             catch (Exception ex)
             {
