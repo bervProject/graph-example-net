@@ -9,7 +9,7 @@
     <PackageReference Include="Microsoft.Graph.Auth" Version="1.0.0-preview.7" />
     <PackageReference Include="Microsoft.Identity.Client" Version="4.54.1" />
     <PackageReference Include="Microsoft.Identity.Web.MicrosoftGraph" Version="2.11.1" />
-    <PackageReference Include="Microsoft.Identity.Web.UI" Version="2.11.1" />
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="2.12.2" />
   </ItemGroup>
 
 </Project>
