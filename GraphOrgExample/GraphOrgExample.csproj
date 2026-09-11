@@ -7,7 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Azure.Identity" Version="1.21.0" />
     <PackageReference Include="Microsoft.Graph" Version="6.6.0" />
-    <PackageReference Include="Microsoft.Identity.Client" Version="4.88.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.89.0" />
     <PackageReference Include="Microsoft.Identity.Web.MicrosoftGraph" Version="4.14.2" />
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="4.14.2" />
   </ItemGroup>
